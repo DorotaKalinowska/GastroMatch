@@ -1305,33 +1305,66 @@ def render_about_project():
     )
 
 def render_research_tab():
-    st.header("📊 Plan badania użytkowników")
+    st.header("📊 Badanie prototypu")
 
     st.markdown("""
-    Żeby projekt miał większą wartość konkursową, warto przetestować prototyp na małej grupie osób.
+    ### Cel badania
 
-    ### Proponowana metoda
+    Celem badania jest sprawdzenie, czy GastroMatch ułatwia nowemu użytkownikowi
+    wybór diety i wariantu paczki w ofercie Gastro Paczki.
 
-    1. Poproś 10–20 osób o wybór diety bez asystenta.
-    2. Zmierz czas potrzebny do wyboru.
-    3. Zapytaj o pewność decyzji w skali 1–5.
-    4. Następnie poproś te same osoby o przejście przez GastroMatch.
-    5. Ponownie zmierz czas i pewność decyzji.
-
-    ### Metryki do prezentacji
-
-    | Metryka | Przed quizem | Po użyciu GastroMatch |
-    |---|---:|---:|
-    | Średni czas wyboru | do uzupełnienia | do uzupełnienia |
-    | Pewność decyzji 1–5 | do uzupełnienia | do uzupełnienia |
-    | Łatwość wyboru 1–5 | do uzupełnienia | do uzupełnienia |
-
-    ### Przykładowy wniosek, który chcesz uzyskać
-
-    > Użytkownicy szybciej wybierali ofertę i częściej rozumieli,
-    > dlaczego dana dieta lub paczka jest dla nich odpowiednia.
+    Badanie będzie miało charakter pilotażowy. Jego celem nie jest pełna ocena
+    skuteczności rozwiązania na dużej próbie, lecz wstępna walidacja, czy quiz
+    skraca proces wyboru, zwiększa pewność decyzji i pomaga lepiej zrozumieć ofertę.
     """)
 
+    st.markdown(
+        '<div class="section-title">Plan badania</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    Uczestnik badania zostanie poproszony o wykonanie dwóch zadań:
+
+    1. Samodzielny wybór diety lub wariantu paczki bez użycia GastroMatch.
+    2. Wybór z wykorzystaniem prototypu GastroMatch.
+
+    Po każdym etapie zostaną zebrane odpowiedzi dotyczące czasu wyboru,
+    łatwości procesu, pewności decyzji oraz zrozumienia otrzymanej rekomendacji.
+    """)
+
+    st.markdown(
+        '<div class="section-title">Mierzone wskaźniki</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    W badaniu zostaną uwzględnione następujące wskaźniki:
+
+    - czas potrzebny na wybór oferty,
+    - pewność decyzji w skali 1–5,
+    - łatwość wyboru w skali 1–5,
+    - zrozumienie rekomendacji,
+    - deklarowana chęć skorzystania z podobnego rozwiązania przy realnym zamówieniu.
+    """)
+
+    st.markdown(
+        '<div class="section-title">Status badania</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    Badanie jest planowanym etapem walidacji prototypu. Po zebraniu odpowiedzi
+    wyniki zostaną przedstawione w formie porównania procesu wyboru przed i po
+    użyciu GastroMatch.
+
+    Ankieta badawcza będzie stanowiła osobny załącznik do pracy konkursowej.
+    """)
+
+    st.info(
+        "Zakładka prezentuje założenia badania pilotażowego. Wyniki zostaną "
+        "uzupełnione po zebraniu odpowiedzi od uczestników."
+    )
 
 # =========================
 # GŁÓWNA APLIKACJA
