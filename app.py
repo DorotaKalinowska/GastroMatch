@@ -1195,13 +1195,19 @@ def render_about_project():
     st.markdown("""
     ### Cel projektu
 
-    GastroMatch to prototyp asystenta decyzyjnego wspierającego użytkownika
-    w wyborze diety pudełkowej oraz wariantu paczki.
+    GastroMatch to prototyp asystenta decyzyjnego dla oferty Gastro Paczki,
+    który wspiera użytkownika w wyborze diety pudełkowej oraz odpowiedniego
+    wariantu paczki.
 
-    Celem projektu jest uproszczenie ścieżki wyboru oferty. Użytkownik odpowiada
-    na kilka pytań dotyczących stylu życia, celu, liczby posiłków, preferencji
-    żywieniowych oraz kaloryczności. Na tej podstawie aplikacja przedstawia
-    rekomendację główną, alternatywne propozycje oraz sugerowany kolejny krok.
+    Projekt odpowiada na problem pierwszego kontaktu z ofertą. Nowy użytkownik
+    może czuć się zagubiony, ponieważ musi porównać wiele możliwości: typ diety,
+    liczbę posiłków, tryb dnia, preferencje żywieniowe, kaloryczność oraz wariant
+    paczki. Duża liczba opcji jest wartością oferty, ale może też wydłużać proces
+    decyzyjny.
+
+    Celem GastroMatch jest skrócenie tej ścieżki. Użytkownik odpowiada na kilka
+    prostych pytań, a aplikacja przedstawia rekomendację główną, alternatywne
+    propozycje oraz sugerowany kolejny krok.
     """)
 
     st.markdown(
