@@ -1184,7 +1184,7 @@ def render_result():
                 """, unsafe_allow_html=True)
 
     st.markdown(
-        "<div class='footer-note'>Prototyp przygotowany w ramach projektu konkursowego GastroMatch.</div>",
+        "<div class='footer-note'>Prototyp przygotowany w ramach projektu  GastroMatch.</div>",
         unsafe_allow_html=True
     )
 
@@ -1358,7 +1358,7 @@ def render_research_tab():
     wyniki zostaną przedstawione w formie porównania procesu wyboru przed i po
     użyciu GastroMatch.
 
-    Ankieta badawcza będzie stanowiła osobny załącznik do pracy konkursowej.
+    Ankieta badawcza będzie stanowiła osobny załącznik do pracy.
     """)
 
     st.info(
