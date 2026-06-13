@@ -1307,75 +1307,88 @@ def render_about_project():
 def render_research_tab():
     st.header("📊 Badanie prototypu")
 
-    ANKIETA_LINK = "https://forms.gle/paKTyefoHj4acPeJ9"
+    ```
+    # Link do formularza badania pilotażowego.
+    # Jeśli zostawisz puste "", przycisk nie będzie pokazany.
+    ANKIETA_LINK = "https://forms.gle/GKLdzbcCb4SMTDUZA"
 
     st.markdown("""
-    ### Czy GastroMatch faktycznie pomaga w wyborze?
+    ### Co sprawdziliśmy?
 
-    Po przygotowaniu prototypu przeprowadzono **badanie pilotażowe na grupie 12 respondentów**.
-    Celem było sprawdzenie, czy krótki quiz rekomendacyjny może ułatwić nowemu użytkownikowi
-    pierwszy wybór diety i wariantu paczki w ofercie Gastro Paczki.
+    Po przygotowaniu prototypu przeprowadziłam krótkie badanie pilotażowe na grupie
+    **12 osób**. Chciałam sprawdzić, czy GastroMatch faktycznie pomaga w pierwszym
+    wyborze diety i wariantu paczki, a nie tylko wygląda dobrze jako pomysł.
 
-    Respondenci porównywali dwa scenariusze:
+    Respondenci wykonali dwa zadania:
 
-    1. **Samodzielny wybór oferty bez GastroMatch**
-    2. **Wybór z wykorzystaniem prototypu GastroMatch**
+    1. Najpierw próbowali wybrać ofertę samodzielnie, bez użycia GastroMatch.
+    2. Następnie korzystali z prototypu i przechodzili przez krótki quiz.
 
-    Badanie nie miało na celu pełnej walidacji gotowego produktu, lecz sprawdzenie,
-    czy sama koncepcja asystenta pierwszego wyboru jest zrozumiała i użyteczna.
+    Po obu etapach oceniali między innymi łatwość wyboru, pewność decyzji,
+    czas potrzebny na wybór oraz zrozumienie otrzymanej rekomendacji.
     """)
 
     st.markdown("""
     <style>
-    .result-card {
+    .research-card {
         background-color: #F7FBF7;
         border: 1px solid #DCEBDD;
         border-radius: 16px;
         padding: 18px 20px;
         margin-bottom: 16px;
-        min-height: 180px;
+        min-height: 165px;
     }
-    .result-card h4 {
-        margin: 0 0 8px 0;
+
+    .research-card-title {
+        font-size: 16px;
+        font-weight: 700;
         color: #1F3D2B;
-        font-size: 17px;
+        margin-bottom: 8px;
     }
-    .result-value {
-        font-size: 34px;
+
+    .research-card-value {
+        font-size: 32px;
         font-weight: 800;
         color: #1F3D2B;
         margin-bottom: 8px;
     }
-    .result-desc {
+
+    .research-card-text {
         font-size: 15px;
         line-height: 1.55;
         color: #24352A;
     }
-    .result-note {
-        margin-top: 8px;
+
+    .research-card-small {
         font-size: 13px;
+        line-height: 1.45;
         color: #66756A;
+        margin-top: 8px;
     }
-    .comparison-card {
+
+    .simple-box {
         background-color: #FFFFFF;
         border: 1px solid #DCEBDD;
         border-radius: 16px;
         padding: 18px 20px;
         margin-bottom: 16px;
     }
-    .comparison-title {
+
+    .simple-box-title {
         font-size: 17px;
         font-weight: 700;
         color: #1F3D2B;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
-    .comparison-values {
-        font-size: 24px;
+
+    .simple-box-value {
+        font-size: 23px;
         font-weight: 800;
         color: #1F3D2B;
         margin-bottom: 8px;
     }
-    .comparison-desc {
+
+    .simple-box-text {
         font-size: 15px;
         line-height: 1.55;
         color: #24352A;
@@ -1384,40 +1397,44 @@ def render_research_tab():
     """, unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Najważniejsze wyniki badania</div>',
+        '<div class="section-title">Najważniejsze obserwacje</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Poniższe wyniki pokazują, jak użytkownicy ocenili wybór oferty **bez GastroMatch**
-    oraz **po użyciu prototypu**.
+    Poniżej pokazuję najważniejsze wyniki z badania. Nie traktuję ich jako pełnego
+    badania rynku, ale jako pierwszą walidację prototypu i kierunku, w którym warto
+    rozwijać aplikację.
     """)
 
     col1, col2 = st.columns(2)
 
     with col1:
         st.markdown("""
-        <div class="result-card">
-            <h4>Łatwiejszy wybór z GastroMatch</h4>
-            <div class="result-value">83%</div>
-            <div class="result-desc">
-                <strong>10 z 12 respondentów</strong> wskazało, że wybór oferty
-                z użyciem GastroMatch był łatwiejszy niż samodzielne porównywanie opcji.
+        <div class="research-card">
+            <div class="research-card-title">Większości osób było łatwiej z GastroMatch</div>
+            <div class="research-card-value">10 / 12</div>
+            <div class="research-card-text">
+                Tyle osób wskazało, że wybór z użyciem GastroMatch był łatwiejszy
+                niż samodzielne porównywanie dostępnych opcji.
             </div>
-            <div class="result-note">Wniosek: quiz upraszcza pierwszy kontakt z ofertą.</div>
+            <div class="research-card-small">
+                To odpowiada 83% respondentów.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
-        <div class="result-card">
-            <h4>Wybór w czasie do 2 minut</h4>
-            <div class="result-value">83%</div>
-            <div class="result-desc">
-                <strong>10 z 12 respondentów</strong> przeszło quiz i otrzymało rekomendację
-                w czasie krótszym niż 2 minuty.
+        <div class="research-card">
+            <div class="research-card-title">Quiz był szybki do przejścia</div>
+            <div class="research-card-value">10 / 12</div>
+            <div class="research-card-text">
+                Tyle osób przeszło quiz i otrzymało rekomendację w czasie do 2 minut.
             </div>
-            <div class="result-note">Wniosek: GastroMatch skraca ścieżkę decyzyjną.</div>
+            <div class="research-card-small">
+                To pokazuje, że prototyp nie wydłuża procesu wyboru, tylko go skraca.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1425,89 +1442,94 @@ def render_research_tab():
 
     with col1:
         st.markdown("""
-        <div class="result-card">
-            <h4>Wysoka zrozumiałość rekomendacji</h4>
-            <div class="result-value">100%</div>
-            <div class="result-desc">
-                <strong>12 z 12 respondentów</strong> oceniło zrozumiałość rekomendacji
-                na 4 lub 5 w skali od 1 do 5.
+        <div class="research-card">
+            <div class="research-card-title">Rekomendacja była zrozumiała</div>
+            <div class="research-card-value">12 / 12</div>
+            <div class="research-card-text">
+                Wszyscy respondenci ocenili zrozumiałość rekomendacji na 4 lub 5
+                w skali od 1 do 5.
             </div>
-            <div class="result-note">Wniosek: użytkownicy rozumieją, dlaczego dana opcja została wskazana.</div>
+            <div class="research-card-small">
+                To ważne, bo użytkownik nie dostaje tylko wyniku, ale też jego uzasadnienie.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
-        <div class="result-card">
-            <h4>Chęć użycia podobnego narzędzia</h4>
-            <div class="result-value">75%</div>
-            <div class="result-desc">
-                <strong>9 z 12 respondentów</strong> zadeklarowało, że użyłoby
-                lub raczej użyłoby takiego quizu przy realnym wyborze diety pudełkowej.
+        <div class="research-card">
+            <div class="research-card-title">Większość użyłaby takiego narzędzia</div>
+            <div class="research-card-value">9 / 12</div>
+            <div class="research-card-text">
+                Tyle osób odpowiedziało, że użyłoby lub raczej użyłoby podobnego quizu
+                przy realnym wyborze diety pudełkowej.
             </div>
-            <div class="result-note">Wniosek: koncepcja ma potencjał użytkowy, ale wymaga dalszego rozwoju.</div>
+            <div class="research-card-small">
+                To odpowiada 75% respondentów.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("""
-    Na podstawie wyników można stwierdzić, że GastroMatch najlepiej sprawdza się jako
-    **asystent pierwszego wyboru**. Pomaga użytkownikowi szybciej zawęzić ofertę,
-    uporządkować potrzeby i zrozumieć otrzymaną rekomendację.
+    Najprostszy wniosek z tych odpowiedzi jest taki: GastroMatch ma sens jako
+    **pierwszy krok w wyborze oferty**. Pomaga szybciej zawęzić możliwości i lepiej
+    zrozumieć, od której opcji można zacząć.
     """)
 
     st.markdown("---")
 
     st.markdown(
-        '<div class="section-title">Porównanie przed i po użyciu GastroMatch</div>',
+        '<div class="section-title">Ocena przed i po użyciu GastroMatch</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Respondenci oceniali proces wyboru w skali od **1 do 5**. Porównanie pokazuje,
-    jak zmieniła się ocena po skorzystaniu z prototypu.
+    Respondenci oceniali poszczególne elementy w skali od **1 do 5**.
+    Poniżej znajduje się porównanie średnich ocen przed użyciem aplikacji i po przejściu quizu.
     """)
 
     st.markdown("""
-    <div class="comparison-card">
-        <div class="comparison-title">Łatwość wyboru</div>
-        <div class="comparison-values">2,75 / 5 → 4,50 / 5</div>
-        <div class="comparison-desc">
-            Ocena łatwości wyboru wzrosła o <strong>+1,75 punktu</strong>.
-            To jeden z najmocniejszych wyników badania — użytkownikom było wyraźnie łatwiej
-            przejść przez decyzję z pomocą GastroMatch.
+    <div class="simple-box">
+        <div class="simple-box-title">Łatwość wyboru</div>
+        <div class="simple-box-value">2,75 / 5 → 4,50 / 5</div>
+        <div class="simple-box-text">
+            To największa zmiana w badaniu. Po użyciu GastroMatch respondenci wyraźnie
+            lepiej oceniali sam proces wyboru. Oznacza to, że quiz spełnia swoją główną rolę:
+            porządkuje decyzję i zmniejsza poczucie zagubienia w ofercie.
         </div>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div class="comparison-card">
-        <div class="comparison-title">Pewność decyzji</div>
-        <div class="comparison-values">3,00 / 5 → 3,58 / 5</div>
-        <div class="comparison-desc">
-            Pewność decyzji wzrosła o <strong>+0,58 punktu</strong>.
-            Wzrost jest pozytywny, ale mniejszy niż w pozostałych obszarach.
-            To pokazuje, że kolejna wersja powinna dodać więcej informacji przy wyniku,
-            np. ceny, przykładowe menu, zdjęcia posiłków i porównanie wariantów.
+    <div class="simple-box">
+        <div class="simple-box-title">Pewność decyzji</div>
+        <div class="simple-box-value">3,00 / 5 → 3,58 / 5</div>
+        <div class="simple-box-text">
+            Tutaj poprawa jest mniejsza. To dla mnie ważna informacja, bo pokazuje,
+            że sama rekomendacja pomaga, ale do pełnej decyzji użytkownicy potrzebują
+            jeszcze więcej konkretów, takich jak cena, przykładowe menu, zdjęcia posiłków
+            albo dokładniejsze porównanie wariantów.
         </div>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div class="comparison-card">
-        <div class="comparison-title">Zrozumienie rekomendacji</div>
-        <div class="comparison-values">3,00 / 5 → 4,75 / 5</div>
-        <div class="comparison-desc">
-            Zrozumienie rekomendacji wzrosło o <strong>+1,75 punktu</strong>.
-            Oznacza to, że prototyp nie tylko wskazuje wynik, ale pomaga użytkownikowi
-            zrozumieć, dlaczego dana dieta lub wariant paczki może być dla niego odpowiedni.
+    <div class="simple-box">
+        <div class="simple-box-title">Zrozumienie rekomendacji</div>
+        <div class="simple-box-value">3,00 / 5 → 4,75 / 5</div>
+        <div class="simple-box-text">
+            Po użyciu GastroMatch respondenci dużo lepiej rozumieli, dlaczego dana opcja
+            została im wskazana. To potwierdza, że sekcja z uzasadnieniem wyniku jest
+            potrzebna i powinna zostać rozwijana w kolejnych wersjach.
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    st.success(
-        "Najważniejszy wniosek: GastroMatch wyraźnie poprawia łatwość wyboru i zrozumienie rekomendacji. "
-        "Pewność decyzji również rośnie, ale to właśnie ten obszar warto najmocniej rozbudować w kolejnej wersji."
-    )
+    st.markdown("""
+    Najlepsze wyniki pojawiły się przy **łatwości wyboru** i **zrozumieniu rekomendacji**.
+    Słabszy wzrost pewności decyzji nie jest dla mnie minusem projektu, tylko wskazówką,
+    co powinno znaleźć się w następnej wersji prototypu.
+    """)
 
     st.markdown("---")
 
@@ -1522,10 +1544,11 @@ def render_research_tab():
         st.markdown("""
         #### Bez GastroMatch
 
-        **67% respondentów** potrzebowało ponad 10 minut albo nie udało im się jednoznacznie wybrać oferty.
+        **67% respondentów** potrzebowało ponad 10 minut albo nie udało im się
+        jednoznacznie wybrać oferty.
 
-        Oznacza to, że samodzielne porównywanie dostępnych opcji może być dla użytkownika czasochłonne
-        i nie zawsze prowadzi do jasnej decyzji.
+        To pokazuje, że samodzielne porównywanie wielu opcji może być dla części osób
+        zbyt czasochłonne lub niejasne.
         """)
 
     with col2:
@@ -1534,29 +1557,32 @@ def render_research_tab():
 
         **83% respondentów** przeszło quiz i otrzymało rekomendację w czasie do 2 minut.
 
-        Oznacza to, że prototyp znacząco skraca pierwszy etap wyboru i szybciej prowadzi użytkownika
-        do konkretnej propozycji.
+        W praktyce oznacza to, że GastroMatch skraca pierwszy etap decyzji i szybciej
+        prowadzi użytkownika do konkretnej propozycji.
         """)
 
     st.markdown("---")
 
     st.markdown(
-        '<div class="section-title">Co najbardziej pomogło użytkownikom?</div>',
+        '<div class="section-title">Co użytkownicy ocenili pozytywnie?</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    W odpowiedziach otwartych respondenci najczęściej wskazywali:
+    W odpowiedziach otwartych najczęściej pojawiały się informacje, że aplikacja jest
+    prosta, szybka i pomaga uporządkować wybór.
 
-    - krótką i prostą ścieżkę decyzyjną,
-    - intuicyjny przebieg quizu,
-    - pytania, które pomagały uporządkować potrzeby,
-    - sekcję "Dlaczego ta opcja?",
-    - szybkie otrzymanie konkretnej rekomendacji bez samodzielnego porównywania wielu opisów.
+    Respondenci zwracali uwagę między innymi na:
+
+    - krótką ścieżkę decyzyjną,
+    - prostą formę quizu,
+    - pytania, które prowadzą przez wybór,
+    - uzasadnienie rekomendacji,
+    - szybkie otrzymanie konkretnej propozycji.
     """)
 
     st.markdown("""
-    Przykładowe anonimowe odpowiedzi respondentów:
+    Przykładowe anonimowe odpowiedzi:
 
     > "Krótka ścieżka decyzyjna."  
     > "Szybki proces, przyjazny interfejs."  
@@ -1568,29 +1594,28 @@ def render_research_tab():
     st.markdown("---")
 
     st.markdown(
-        '<div class="section-title">Wnioski z pilotażu</div>',
+        '<div class="section-title">Co wymaga dopracowania?</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Badanie pokazało, że GastroMatch ma największą wartość jako narzędzie wspierające
-    **pierwszy wybór oferty**. Prototyp ułatwia użytkownikowi przejście przez decyzję,
-    ogranicza liczbę elementów do samodzielnego porównania i jasno wyjaśnia wynik.
+    Badanie pokazało też, że prototyp nie powinien kończyć rozwoju na samym quizie.
+    Część osób potrzebuje większej liczby szczegółów, zanim poczuje się pewnie
+    z rekomendacją.
 
-    Jednocześnie odpowiedzi respondentów pokazały, że kolejna wersja powinna mocniej
-    wspierać **pewność decyzji**. Najczęściej wskazywane kierunki rozwoju to:
+    Najczęściej wskazywane kierunki rozwoju to:
 
     - dodanie cen i porównania wariantów,
     - pokazanie przykładowego menu,
     - dodanie zdjęć posiłków,
     - rozszerzenie filtrów składników i preferencji,
-    - pełniejsze uzasadnienie rekomendacji.
+    - dokładniejsze wyjaśnienie, dlaczego dana opcja pasuje do użytkownika.
     """)
 
     st.info(
-        "Interpretacja: wyniki pilotażu wskazują, że GastroMatch może ułatwiać "
-        "i przyspieszać pierwszy wybór oferty. Kolejna wersja powinna skupić się "
-        "na dodaniu informacji, które zwiększą pewność użytkownika przed realnym zamówieniem."
+        "Interpretacja: prototyp dobrze sprawdza się jako pierwszy filtr wyboru. "
+        "Kolejna wersja powinna mocniej wspierać moment przed realnym zamówieniem, "
+        "czyli dodać więcej informacji zwiększających pewność decyzji."
     )
 
     st.markdown("---")
@@ -1601,8 +1626,8 @@ def render_research_tab():
     )
 
     st.markdown("""
-    Formularz ankiety został przygotowany jako narzędzie do zebrania opinii użytkowników
-    po przejściu dwóch scenariuszy: wyboru bez GastroMatch oraz wyboru z użyciem prototypu.
+    Formularz ankiety został przygotowany do zebrania opinii po przejściu dwóch scenariuszy:
+    wyboru bez GastroMatch oraz wyboru z użyciem prototypu.
 
     Anonimowe wyniki badania zostaną przekazane jako osobny załącznik do pracy konkursowej.
     Logika rekomendacji i matryca punktowa są dostępne w osobnej zakładce aplikacji.
@@ -1616,7 +1641,7 @@ def render_research_tab():
     else:
         st.caption("📝 Link do formularza badania pilotażowego: do uzupełnienia")
 
-
+    st.markdown("---")
 
     st.markdown(
         '<div class="section-title">Podsumowanie</div>',
@@ -1624,16 +1649,16 @@ def render_research_tab():
     )
 
     st.markdown("""
-    **GastroMatch nie zastępuje pełnej oferty ani konsultacji dietetycznej.**
-    Jego rolą jest uproszczenie pierwszego kroku — pomoc użytkownikowi w zawężeniu
-    wyboru i wskazaniu opcji, od której warto rozpocząć.
+    GastroMatch nie jest gotowym systemem sprzedażowym ani poradą dietetyczną.
+    To prototyp narzędzia, które ma pomóc użytkownikowi zrobić pierwszy krok:
+    zawęzić ofertę i zobaczyć, która opcja może być dla niego dobrym punktem startu.
 
-    Na podstawie badania pilotażowego można stwierdzić, że prototyp:
+    Na podstawie pilotażu można powiedzieć, że aplikacja:
 
-    - skraca czas wyboru,
+    - skraca czas pierwszego wyboru,
     - zwiększa łatwość podjęcia decyzji,
     - poprawia zrozumienie rekomendacji,
-    - pokazuje konkretne kierunki dalszego rozwoju produktu.
+    - pokazuje jasne kierunki dalszego rozwoju.
     """)
 
 
