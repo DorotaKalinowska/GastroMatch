@@ -1304,67 +1304,211 @@ def render_about_project():
         "To prototyp narzędzia wspierającego pierwszy wybór oferty."
     )
 
+```python
 def render_research_tab():
     st.header("📊 Badanie prototypu")
 
     st.markdown("""
-    ### Cel badania
+    ### Czy GastroMatch faktycznie pomaga w wyborze?
 
-    Celem badania jest sprawdzenie, czy GastroMatch ułatwia nowemu użytkownikowi
-    wybór diety i wariantu paczki w ofercie Gastro Paczki.
+    Po przygotowaniu prototypu przeprowadzono badanie pilotażowe na grupie 12 respondentów.
+    Celem było sprawdzenie, czy krótki quiz rekomendacyjny może ułatwić nowemu użytkownikowi
+    pierwszy wybór diety i wariantu paczki w ofercie Gastro Paczki.
 
-    Badanie będzie miało charakter pilotażowy. Jego celem nie jest pełna ocena
-    skuteczności rozwiązania na dużej próbie, lecz wstępna walidacja, czy quiz
-    skraca proces wyboru, zwiększa pewność decyzji i pomaga lepiej zrozumieć ofertę.
+    Respondenci porównywali dwa scenariusze:
+
+    1. **Samodzielny wybór oferty bez GastroMatch**  
+    2. **Wybór z wykorzystaniem prototypu GastroMatch**
+
+    Badanie nie miało na celu pełnej walidacji gotowego produktu, lecz sprawdzenie,
+    czy sama koncepcja asystenta pierwszego wyboru jest zrozumiała i użyteczna.
     """)
 
     st.markdown(
-        '<div class="section-title">Plan badania</div>',
+        '<div class="section-title">Najważniejsze wyniki</div>',
+        unsafe_allow_html=True
+    )
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric("Respondenci", "12", "badanie pilotażowe")
+
+    with col2:
+        st.metric("Łatwiejszy wybór", "83%", "z GastroMatch")
+
+    with col3:
+        st.metric("Quiz do 2 minut", "83%", "respondentów")
+
+    with col4:
+        st.metric("Zrozumiałość", "100%", "ocena 4 lub 5/5")
+
+    st.markdown("""
+    Wyniki wskazują, że GastroMatch najlepiej sprawdza się jako pierwszy filtr decyzyjny:
+    pomaga szybciej zawęzić wybór, uporządkować potrzeby użytkownika i zrozumieć,
+    dlaczego dana opcja została wskazana.
+    """)
+
+    st.markdown("---")
+
+    st.markdown(
+        '<div class="section-title">Porównanie przed i po użyciu GastroMatch</div>',
+        unsafe_allow_html=True
+    )
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric(
+            "Łatwość wyboru",
+            "4,50 / 5",
+            "+1,75 względem wyboru bez aplikacji"
+        )
+        st.caption("Bez GastroMatch: 2,75 / 5")
+
+    with col2:
+        st.metric(
+            "Pewność decyzji",
+            "3,58 / 5",
+            "+0,58 względem wyboru bez aplikacji"
+        )
+        st.caption("Bez GastroMatch: 3,00 / 5")
+
+    with col3:
+        st.metric(
+            "Zrozumienie rekomendacji",
+            "4,75 / 5",
+            "+1,75 względem wyboru bez aplikacji"
+        )
+        st.caption("Bez GastroMatch: 3,00 / 5")
+
+    st.markdown("""
+    Największa poprawa była widoczna w dwóch obszarach: **łatwości wyboru**
+    oraz **zrozumieniu rekomendacji**. Pewność decyzji również wzrosła, ale słabiej,
+    co wskazuje konkretny kierunek dalszego rozwoju prototypu.
+    """)
+
+    st.markdown("---")
+
+    st.markdown(
+        '<div class="section-title">Czas wyboru</div>',
+        unsafe_allow_html=True
+    )
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
+        #### Bez GastroMatch
+
+        **67% respondentów** potrzebowało ponad 10 minut  
+        albo nie udało im się jednoznacznie wybrać oferty.
+        """)
+
+    with col2:
+        st.markdown("""
+        #### Z GastroMatch
+
+        **83% respondentów** przeszło quiz i otrzymało rekomendację  
+        w czasie do 2 minut.
+        """)
+
+    st.success(
+        "Wniosek: GastroMatch skraca ścieżkę decyzyjną i pomaga szybciej przejść "
+        "od ogólnego zainteresowania ofertą do konkretnej rekomendacji."
+    )
+
+    st.markdown("---")
+
+    st.markdown(
+        '<div class="section-title">Co najbardziej pomogło użytkownikom?</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Uczestnik badania zostanie poproszony o wykonanie dwóch zadań:
+    W odpowiedziach otwartych respondenci najczęściej wskazywali:
 
-    1. Samodzielny wybór diety lub wariantu paczki bez użycia GastroMatch.
-    2. Wybór z wykorzystaniem prototypu GastroMatch.
-
-    Po każdym etapie zostaną zebrane odpowiedzi dotyczące czasu wyboru,
-    łatwości procesu, pewności decyzji oraz zrozumienia otrzymanej rekomendacji.
+    - krótką i prostą ścieżkę decyzyjną,
+    - intuicyjny przebieg quizu,
+    - pytania, które pomagały uporządkować potrzeby,
+    - sekcję **„Dlaczego ta opcja?”**,
+    - szybkie otrzymanie konkretnej rekomendacji bez samodzielnego porównywania wielu opisów.
     """)
 
+    st.markdown("""
+    Przykładowe anonimowe odpowiedzi respondentów:
+
+    > „Krótka ścieżka decyzyjna.”  
+    > „Szybki proces, przyjazny interfejs.”  
+    > „Prosta i intuicyjna forma.”  
+    > „Pytania dobrze kierowały.”  
+    > „Szybko mogłem dostać plan żywieniowy dopasowany pod siebie, bez czytania opisów planów żywieniowych.”
+    """)
+
+    st.markdown("---")
+
     st.markdown(
-        '<div class="section-title">Mierzone wskaźniki</div>',
+        '<div class="section-title">Wnioski z pilotażu</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    W badaniu zostaną uwzględnione następujące wskaźniki:
+    Badanie pokazało, że GastroMatch ma największą wartość jako narzędzie wspierające
+    pierwszy wybór oferty. Prototyp ułatwia użytkownikowi przejście przez decyzję,
+    ogranicza liczbę elementów do samodzielnego porównania i jasno wyjaśnia wynik.
 
-    - czas potrzebny na wybór oferty,
-    - pewność decyzji w skali 1–5,
-    - łatwość wyboru w skali 1–5,
-    - zrozumienie rekomendacji,
-    - deklarowana chęć skorzystania z podobnego rozwiązania przy realnym zamówieniu.
-    """)
+    Jednocześnie odpowiedzi respondentów pokazały, że kolejna wersja powinna mocniej
+    wspierać **pewność decyzji**. Najczęściej wskazywane kierunki rozwoju to:
 
-    st.markdown(
-        '<div class="section-title">Status badania</div>',
-        unsafe_allow_html=True
-    )
-
-    st.markdown("""
-    Badanie jest planowanym etapem walidacji prototypu. Po zebraniu odpowiedzi
-    wyniki zostaną przedstawione w formie porównania procesu wyboru przed i po
-    użyciu GastroMatch.
-
-    Ankieta badawcza będzie stanowiła osobny załącznik do pracy.
+    - dodanie cen i porównania wariantów,
+    - pokazanie przykładowego menu,
+    - dodanie zdjęć posiłków,
+    - rozszerzenie filtrów składników i preferencji,
+    - pełniejsze uzasadnienie rekomendacji.
     """)
 
     st.info(
-        "Zakładka prezentuje założenia badania pilotażowego. Wyniki zostaną "
-        "uzupełnione po zebraniu odpowiedzi od uczestników."
+        "Interpretacja: wyniki pilotażu wskazują, że GastroMatch może ułatwiać "
+        "i przyspieszać pierwszy wybór oferty. Kolejna wersja powinna skupić się "
+        "na dodaniu informacji, które zwiększą pewność użytkownika przed realnym zamówieniem."
     )
+
+    st.markdown("---")
+
+    st.markdown(
+        '<div class="section-title">Podsumowanie</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    **GastroMatch nie zastępuje pełnej oferty ani konsultacji dietetycznej.**
+    Jego rolą jest uproszczenie pierwszego kroku — pomoc użytkownikowi w zawężeniu
+    wyboru i wskazaniu opcji, od której warto rozpocząć.
+
+    Na podstawie badania pilotażowego można stwierdzić, że prototyp:
+
+    - skraca czas wyboru,
+    - zwiększa łatwość podjęcia decyzji,
+    - poprawia zrozumienie rekomendacji,
+    - pokazuje konkretne kierunki dalszego rozwoju produktu.
+    """)
+    st.markdown("---")
+
+    st.markdown(
+        '<div class="section-title">Materiały badawcze</div>',
+        unsafe_allow_html=True
+)
+
+    st.markdown("""
+    Formularz ankiety został przygotowany jako narzędzie do zebrania opinii użytkowników
+    po przejściu dwóch scenariuszy: wyboru bez GastroMatch oraz wyboru z użyciem prototypu.
+    """)
+
+    st.link_button(
+        "📝 Zobacz formularz badania pilotażowego",
+        "TU_WKLEJ_LINK_DO_ANKIETY"
+)
+```
 
 # =========================
 # GŁÓWNA APLIKACJA
