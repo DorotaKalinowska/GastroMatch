@@ -477,79 +477,116 @@ st.markdown("""
         margin-top: 0.9rem;
         margin-bottom: 0.35rem;
     }
-    ```
+    
 /* =========================
    BADANIE PROTOTYPU
 ========================= */
 
-.research-card {
-    background-color: #F7FBF7;
-    border: 1px solid #DCEBDD;
-    border-radius: 18px;
-    padding: 1.1rem 1.2rem;
-    margin-bottom: 1rem;
-    min-height: 165px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.035);
-}
+    .research-section-title {
+        color: #1F3D2B !important;
+        font-size: 24px;
+        font-weight: 900;
+        margin-top: 1.15rem;
+        margin-bottom: 0.55rem;
+    }
 
-.research-card-title {
-    color: #1F3D2B !important;
-    font-size: 16px;
-    font-weight: 850;
-    margin-bottom: 0.45rem;
-    line-height: 1.35;
-}
+    .research-separator {
+        height: 1px;
+        background-color: #E4EFE4;
+        margin: 1.15rem 0 1.25rem 0;
+    }
 
-.research-card-value {
-    color: #1F3D2B !important;
-    font-size: 32px;
-    font-weight: 900;
-    margin-bottom: 0.45rem;
-    line-height: 1.15;
-}
+    .research-card {
+        background-color: #F7FBF7;
+        border: 1px solid #DCEBDD;
+        border-radius: 18px;
+        padding: 1.05rem 1.15rem;
+        margin-bottom: 0.85rem;
+        min-height: 145px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.035);
+    }
 
-.research-card-text {
-    color: #26352B !important;
-    font-size: 15px;
-    line-height: 1.55;
-}
+    .research-card-title {
+        color: #1F3D2B !important;
+        font-size: 16px;
+        font-weight: 850;
+        margin-bottom: 0.4rem;
+        line-height: 1.35;
+    }
 
-.research-card-small {
-    color: #66756A !important;
-    font-size: 13px;
-    line-height: 1.45;
-    margin-top: 0.45rem;
-}
+    .research-card-value {
+        color: #1F3D2B !important;
+        font-size: 32px;
+        font-weight: 900;
+        margin-bottom: 0.35rem;
+        line-height: 1.15;
+    }
 
-.research-comparison-card {
-    background-color: #FFFFFF;
-    border: 1px solid #DCEBDD;
-    border-radius: 18px;
-    padding: 1.1rem 1.2rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.035);
-}
+    .research-card-text {
+        color: #26352B !important;
+        font-size: 15px;
+        line-height: 1.5;
+    }
 
-.research-comparison-title {
-    color: #1F3D2B !important;
-    font-size: 17px;
-    font-weight: 850;
-    margin-bottom: 0.45rem;
-}
+    .research-card-small {
+        color: #66756A !important;
+        font-size: 13px;
+        line-height: 1.4;
+        margin-top: 0.4rem;
+    }
 
-.research-comparison-value {
-    color: #1F3D2B !important;
-    font-size: 23px;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-}
+    .research-comparison-card {
+        background-color: #FFFFFF;
+        border: 1px solid #DCEBDD;
+        border-radius: 18px;
+        padding: 1.05rem 1.15rem;
+        margin-bottom: 0.85rem;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.035);
+    }
 
-.research-comparison-text {
-    color: #26352B !important;
-    font-size: 15px;
-    line-height: 1.6;
-}
-```
+    .research-comparison-title {
+        color: #1F3D2B !important;
+        font-size: 17px;
+        font-weight: 850;
+        margin-bottom: 0.35rem;
+    }
+
+    .research-comparison-value {
+        color: #1F3D2B !important;
+        font-size: 23px;
+        font-weight: 900;
+        margin-bottom: 0.4rem;
+    }
+
+    .research-comparison-text {
+        color: #26352B !important;
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .research-link-btn {
+        display: inline-block;
+        background-color: #EAF7EA;
+        color: #1F3D2B !important;
+        border: 1px solid #CFE4CF;
+        border-radius: 16px;
+        padding: 0.75rem 1.1rem;
+        font-size: 15px;
+        font-weight: 850;
+        text-decoration: none !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.045);
+        transition: all 0.15s ease-in-out;
+        margin-top: 0.4rem;
+    }
+
+    .research-link-btn:hover {
+        background-color: #F1FAF1;
+        border-color: #4CAF50;
+        color: #1F3D2B !important;
+        transform: translateY(-1px);
+        text-decoration: none !important;
+    }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -1378,15 +1415,16 @@ def render_about_project():
     )
 
 def render_research_tab():
+
     st.header("📊 Walidacja prototypu")
 
-    
+    ```
     ANKIETA_LINK = "https://forms.gle/GKLdzbcCb4SMTDUZA"
 
     st.markdown("""
     ### Ocena prototypu GastroMatch
 
-    W celu wstępnej walidacji rozwiązania przeprowadzono badanie pilotażowe na grupie 12 respondentów.
+    W celu wstępnej walidacji rozwiązania przeprowadzono **badanie pilotażowe na grupie 12 respondentów**.
     Celem badania było sprawdzenie, czy prototyp GastroMatch ułatwia nowemu użytkownikowi
     pierwszy wybór diety i wariantu paczki w ofercie Gastro Paczki.
 
@@ -1396,11 +1434,14 @@ def render_research_tab():
     2. **Wybór oferty z wykorzystaniem prototypu GastroMatch**
 
     Po każdym etapie zebrano odpowiedzi dotyczące czasu wyboru, łatwości procesu,
-    pewności decyzji oraz zrozumienia otrzymanej rekomendacji. Uzyskane wyniki należy traktować jako wstępną walidację użyteczności prototypu..
+    pewności decyzji oraz zrozumienia otrzymanej rekomendacji. Badanie miało charakter
+    pilotażowy i służyło ocenie użyteczności koncepcji asystenta pierwszego wyboru.
+    Uzyskane wyniki należy traktować jako wstępną walidację użyteczności prototypu,
+    a nie jako reprezentatywne badanie rynku.
     """)
 
     st.markdown(
-        '<div class="section-title">Najważniejsze wyniki</div>',
+        '<div class="research-section-title">Najważniejsze wyniki</div>',
         unsafe_allow_html=True
     )
 
@@ -1474,20 +1515,20 @@ def render_research_tab():
         """, unsafe_allow_html=True)
 
     st.markdown("""
-    Zebrane odpowiedzi wskazują, że GastroMatch może pełnić funkcję asystenta pierwszego wyboru:
+    Zebrane odpowiedzi wskazują, że GastroMatch może pełnić funkcję **asystenta pierwszego wyboru**:
     pomaga szybciej zawęzić ofertę, uporządkować potrzeby użytkownika i zrozumieć,
     dlaczego dana opcja została wskazana.
     """)
 
-    st.markdown("---")
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Porównanie ocen przed i po użyciu GastroMatch</div>',
+        '<div class="research-section-title">Porównanie ocen przed i po użyciu GastroMatch</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Respondenci oceniali wybrane aspekty procesu w skali od 1 do 5.
+    Respondenci oceniali wybrane aspekty procesu w skali od **1 do 5**.
     Porównanie średnich ocen pokazuje zmianę po zastosowaniu prototypu.
     """)
 
@@ -1534,10 +1575,10 @@ def render_research_tab():
     kierunek dalszego rozwoju rozwiązania.
     """)
 
-    st.markdown("---")
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Czas wyboru</div>',
+        '<div class="research-section-title">Czas wyboru</div>',
         unsafe_allow_html=True
     )
 
@@ -1564,10 +1605,10 @@ def render_research_tab():
         użytkownika do konkretnej propozycji.
         """)
 
-    st.markdown("---")
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Odpowiedzi jakościowe</div>',
+        '<div class="research-section-title">Odpowiedzi jakościowe</div>',
         unsafe_allow_html=True
     )
 
@@ -1592,15 +1633,16 @@ def render_research_tab():
     > "Szybko mogłem dostać plan żywieniowy dopasowany pod siebie, bez czytania opisów planów żywieniowych."
     """)
 
-    st.markdown("---")
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Kierunki dalszego rozwoju</div>',
+        '<div class="research-section-title">Wnioski projektowe</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Badanie wskazało również elementy, które mogą zwiększyć wartość użytkową kolejnej wersji.
+    Analiza odpowiedzi wskazała, które elementy prototypu najlepiej wspierają użytkownika
+    oraz które obszary wymagają rozbudowy w kolejnej iteracji rozwiązania.
     Najczęściej pojawiające się potrzeby dotyczyły większej liczby informacji przy wyniku
     oraz lepszego porównania dostępnych wariantów.
 
@@ -1619,10 +1661,10 @@ def render_research_tab():
         "oraz zwiększeniu pewności decyzji przed realnym zamówieniem."
     )
 
-    st.markdown("---")
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Metodyka badania</div>',
+        '<div class="research-section-title">Metodyka badania</div>',
         unsafe_allow_html=True
     )
 
@@ -1637,15 +1679,15 @@ def render_research_tab():
     """)
 
     if ANKIETA_LINK:
-        st.link_button(
-            "📝 Formularz wykorzystany w badaniu",
-            ANKIETA_LINK
+        st.markdown(
+            f'<a href="{ANKIETA_LINK}" target="_blank" rel="noopener noreferrer" class="research-link-btn">📋 Formularz wykorzystany w badaniu</a>',
+            unsafe_allow_html=True
         )
 
-    st.markdown("---")
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="section-title">Podsumowanie</div>',
+        '<div class="research-section-title">Podsumowanie</div>',
         unsafe_allow_html=True
     )
 
@@ -1665,6 +1707,7 @@ def render_research_tab():
     GastroMatch odpowiada na etap, w którym klient jest zainteresowany cateringiem dietetycznym,
     ale nie wie jeszcze, która opcja będzie dla niego najlepszym punktem startu.
     """)
+
 
 
 # =========================
