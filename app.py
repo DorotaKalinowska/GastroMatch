@@ -1437,7 +1437,7 @@ def render_research_tab():
     - krótką i prostą ścieżkę decyzyjną,
     - intuicyjny przebieg quizu,
     - pytania, które pomagały uporządkować potrzeby,
-    - sekcję **„Dlaczego ta opcja?”**,
+    - sekcję „Dlaczego ta opcja?”,
     - szybkie otrzymanie konkretnej rekomendacji bez samodzielnego porównywania wielu opisów.
     """)
 
