@@ -1304,7 +1304,6 @@ def render_about_project():
         "To prototyp narzędzia wspierającego pierwszy wybór oferty."
     )
 
-```python
 def render_research_tab():
     st.header("📊 Badanie prototypu")
 
@@ -1508,7 +1507,6 @@ def render_research_tab():
         "📝 Zobacz formularz badania pilotażowego",
         "TU_WKLEJ_LINK_DO_ANKIETY"
 )
-```
 
 # =========================
 # GŁÓWNA APLIKACJA
