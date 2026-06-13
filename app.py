@@ -1306,8 +1306,6 @@ def render_about_project():
 
 def render_research_tab():
     st.header("📊 Badanie prototypu")
-
-    ```
     # Link do formularza badania pilotażowego.
     # Jeśli zostawisz puste "", przycisk nie będzie pokazany.
     ANKIETA_LINK = "https://forms.gle/GKLdzbcCb4SMTDUZA"
