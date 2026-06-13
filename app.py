@@ -1405,7 +1405,7 @@ def render_about_project():
     wszystkich reguł dietetycznych, cenowych i operacyjnych.
 
     W kolejnych etapach projekt może zostać rozbudowany o aktualną ofertę,
-    rzeczywisty cennik, kalkulator kaloryczności, dane sprzedażowe, testy A/B
+    rzeczywisty cennik, kalkulator kaloryczności, dane sprzedażowe, testy
     oraz integrację z procesem składania zamówienia.
     """)
 
@@ -1423,7 +1423,7 @@ def render_research_tab():
     st.markdown("""
     ### Ocena prototypu GastroMatch
 
-    W celu wstępnej walidacji rozwiązania przeprowadzono **badanie pilotażowe na grupie 12 respondentów**.
+    W celu wstępnej walidacji rozwiązania przeprowadzono badanie pilotażowe na grupie 12 respondentów.
     Celem badania było sprawdzenie, czy prototyp GastroMatch ułatwia nowemu użytkownikowi
     pierwszy wybór diety i wariantu paczki w ofercie Gastro Paczki.
 
@@ -1435,9 +1435,33 @@ def render_research_tab():
     Po każdym etapie zebrano odpowiedzi dotyczące czasu wyboru, łatwości procesu,
     pewności decyzji oraz zrozumienia otrzymanej rekomendacji. Badanie miało charakter
     pilotażowy i służyło ocenie użyteczności koncepcji asystenta pierwszego wyboru.
-    Uzyskane wyniki należy traktować jako wstępną walidację użyteczności prototypu,
-    a nie jako reprezentatywne badanie rynku.
+    Uzyskane wyniki należy traktować jako wstępną walidację użyteczności prototypu.
     """)
+    
+    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
+
+    st.markdown(
+        '<div class="research-section-title">Metodyka badania</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    Badanie przeprowadzono z wykorzystaniem formularza ankietowego. Respondenci oceniali dwa scenariusze:
+    wybór bez wsparcia GastroMatch oraz wybór z użyciem prototypu. Taki układ pozwolił porównać
+    doświadczenie użytkownika przed i po zastosowaniu rozwiązania.
+
+    Zakres badania obejmował zarówno dane ilościowe, takie jak czas wyboru i oceny w skali 1–5,
+    jak również odpowiedzi jakościowe, umożliwiające identyfikację mocnych stron prototypu
+    oraz obszarów wymagających dalszego dopracowania.
+    """)
+
+    if ANKIETA_LINK:
+        st.markdown(
+            f'<a href="{ANKIETA_LINK}" target="_blank" rel="noopener noreferrer" class="research-link-btn">📋 Formularz wykorzystany w badaniu</a>',
+            unsafe_allow_html=True
+        )
+
+
 
     st.markdown(
         '<div class="research-section-title">Najważniejsze wyniki</div>',
@@ -1461,7 +1485,7 @@ def render_research_tab():
                 był łatwiejszy niż samodzielne porównywanie dostępnych opcji.
             </div>
             <div class="research-card-small">
-                Wynik odpowiada 83% badanej grupy.
+                83% badanej grupy uznało wybór z GastroMatch za prostszy.
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1476,7 +1500,7 @@ def render_research_tab():
                 w czasie nieprzekraczającym 2 minut.
             </div>
             <div class="research-card-small">
-                Wynik wskazuje na skrócenie pierwszego etapu decyzyjnego.
+                83% badanej grupy otrzymało rekomendację w czasie do 2 minut.
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1493,7 +1517,7 @@ def render_research_tab():
                 w skali od 1 do 5.
             </div>
             <div class="research-card-small">
-                Wynik odpowiada 100% badanej grupy.
+                100% badanej grupy oceniło rekomendację jako zrozumiałą.
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1508,13 +1532,13 @@ def render_research_tab():
                 podobnego quizu przy realnym wyborze diety pudełkowej.
             </div>
             <div class="research-card-small">
-                Wynik odpowiada 75% badanej grupy.
+                75% badanej grupy zadeklarowało chęć lub potencjalną chęć użycia takiego narzędzia.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("""
-    Zebrane odpowiedzi wskazują, że GastroMatch może pełnić funkcję **asystenta pierwszego wyboru**:
+    Zebrane odpowiedzi wskazują, że GastroMatch może pełnić funkcję asystenta pierwszego wyboru:
     pomaga szybciej zawęzić ofertę, uporządkować potrzeby użytkownika i zrozumieć,
     dlaczego dana opcja została wskazana.
     """)
@@ -1527,7 +1551,7 @@ def render_research_tab():
     )
 
     st.markdown("""
-    Respondenci oceniali wybrane aspekty procesu w skali od **1 do 5**.
+    Respondenci oceniali wybrane aspekty procesu w skali od 1 do 5.
     Porównanie średnich ocen pokazuje zmianę po zastosowaniu prototypu.
     """)
 
@@ -1635,77 +1659,45 @@ def render_research_tab():
     st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
     st.markdown(
-        '<div class="research-section-title">Wnioski projektowe</div>',
+        '<div class="research-section-title">Wnioski z badania i rekomendacje</div>',
         unsafe_allow_html=True
     )
 
     st.markdown("""
-    Analiza odpowiedzi wskazała, które elementy prototypu najlepiej wspierają użytkownika
-    oraz które obszary wymagają rozbudowy w kolejnej iteracji rozwiązania.
-    Najczęściej pojawiające się potrzeby dotyczyły większej liczby informacji przy wyniku
-    oraz lepszego porównania dostępnych wariantów.
+    Wyniki badania pilotażowego wskazują, że GastroMatch dobrze sprawdza się jako
+    **pierwszy filtr wyboru**. Prototyp skraca czas pierwszej decyzji, zwiększa łatwość
+    wyboru i poprawia zrozumienie rekomendacji. Największą wartością rozwiązania jest
+    uporządkowanie pierwszego kontaktu użytkownika z ofertą — szczególnie w sytuacji,
+    gdy klient jest zainteresowany cateringiem dietetycznym, ale nie wie jeszcze,
+    która opcja będzie dla niego najlepszym punktem startu.
+
+    Analiza odpowiedzi wskazała również obszary, które mogą zwiększyć wartość użytkową
+    kolejnej wersji rozwiązania. Najczęściej pojawiające się potrzeby dotyczyły większej
+    liczby informacji przy wyniku, pełniejszego pokrycia oferty oraz lepszego porównania
+    dostępnych wariantów.
 
     Rekomendowane kierunki rozwoju:
 
-    - dodanie cen i porównania wariantów,
+    - pełniejsze pokrycie oferty i dostępnych wariantów,
+    - dodanie cen i porównania pakietów,
     - pokazanie przykładowego menu,
     - dodanie zdjęć posiłków,
     - rozszerzenie filtrów składników i preferencji,
-    - pełniejsze wyjaśnienie dopasowania rekomendacji do odpowiedzi użytkownika.
+    - rozbudowa uzasadnienia rekomendacji,
+    - integracja z kalkulatorem kalorii dostępnym na stornie Gastro Paczki.
+
+    GastroMatch został zaprojektowany jako prototyp narzędzia wspierającego pierwszy wybór
+    oferty Gastro Paczki. Jego rolą jest uporządkowanie pierwszego etapu decyzji,
+    zawężenie dostępnych opcji i wskazanie propozycji, od której użytkownik może rozpocząć wybór.
     """)
 
     st.info(
-        "Wyniki pilotażu wskazują, że GastroMatch dobrze sprawdza się jako pierwszy filtr wyboru. "
+        "Wniosek końcowy: GastroMatch potwierdził potencjał jako narzędzie wspierające pierwszy wybór oferty. "
         "Dalszy rozwój powinien koncentrować się na pełniejszym pokryciu oferty, rozbudowie uzasadnienia rekomendacji "
         "oraz zwiększeniu pewności decyzji przed realnym zamówieniem."
     )
 
-    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
 
-    st.markdown(
-        '<div class="research-section-title">Metodyka badania</div>',
-        unsafe_allow_html=True
-    )
-
-    st.markdown("""
-    Badanie przeprowadzono z wykorzystaniem formularza ankietowego. Respondenci oceniali dwa scenariusze:
-    wybór bez wsparcia GastroMatch oraz wybór z użyciem prototypu. Taki układ pozwolił porównać
-    doświadczenie użytkownika przed i po zastosowaniu rozwiązania.
-
-    Zakres badania obejmował zarówno dane ilościowe, takie jak czas wyboru i oceny w skali 1–5,
-    jak również odpowiedzi jakościowe, umożliwiające identyfikację mocnych stron prototypu
-    oraz obszarów wymagających dalszego dopracowania.
-    """)
-
-    if ANKIETA_LINK:
-        st.markdown(
-            f'<a href="{ANKIETA_LINK}" target="_blank" rel="noopener noreferrer" class="research-link-btn">📋 Formularz wykorzystany w badaniu</a>',
-            unsafe_allow_html=True
-        )
-
-    st.markdown('<div class="research-separator"></div>', unsafe_allow_html=True)
-
-    st.markdown(
-        '<div class="research-section-title">Podsumowanie</div>',
-        unsafe_allow_html=True
-    )
-
-    st.markdown("""
-    GastroMatch został zaprojektowany jako prototyp narzędzia wspierającego pierwszy wybór
-    oferty Gastro Paczki. Jego rolą jest uporządkowanie pierwszego etapu decyzji,
-    zawężenie dostępnych opcji i wskazanie propozycji, od której użytkownik może rozpocząć wybór.
-
-    Wyniki badania pilotażowego wskazują, że prototyp:
-
-    - skraca czas pierwszego wyboru,
-    - zwiększa łatwość podjęcia decyzji,
-    - poprawia zrozumienie rekomendacji,
-    - ujawnia konkretne kierunki dalszego rozwoju produktu.
-
-    Najważniejszy wniosek z badania dotyczy potrzeby prostego prowadzenia użytkownika przez ofertę.
-    GastroMatch odpowiada na etap, w którym klient jest zainteresowany cateringiem dietetycznym,
-    ale nie wie jeszcze, która opcja będzie dla niego najlepszym punktem startu.
-    """)
 
 
 
