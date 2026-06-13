@@ -1418,7 +1418,6 @@ def render_research_tab():
 
     st.header("📊 Walidacja prototypu")
 
-    ```
     ANKIETA_LINK = "https://forms.gle/GKLdzbcCb4SMTDUZA"
 
     st.markdown("""
