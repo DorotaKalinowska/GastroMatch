@@ -1324,97 +1324,104 @@ def render_research_tab():
     """)
 
     st.markdown(
-        '<div class="section-title">Najważniejsze wyniki</div>',
-        unsafe_allow_html=True
+    'Najważniejsze wyniki badania',
+    unsafe_allow_html=True
     )
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        st.metric("Respondenci", "12", "badanie pilotażowe")
-
-    with col2:
-        st.metric("Łatwiejszy wybór", "83%", "z GastroMatch")
-
-    with col3:
-        st.metric("Quiz do 2 minut", "83%", "respondentów")
-
-    with col4:
-        st.metric("Zrozumiałość", "100%", "ocena 4 lub 5/5")
 
     st.markdown("""
-    Wyniki wskazują, że GastroMatch najlepiej sprawdza się jako pierwszy filtr decyzyjny:
-    pomaga szybciej zawęzić wybór, uporządkować potrzeby użytkownika i zrozumieć,
-    dlaczego dana opcja została wskazana.
+    Badanie pilotażowe objęło 12 respondentów. Poniższe wyniki pokazują,
+    jak użytkownicy ocenili wybór oferty bez GastroMatch oraz po użyciu prototypu.
     """)
-
-    st.markdown("---")
-
-    st.markdown(
-        '<div class="section-title">Porównanie przed i po użyciu GastroMatch</div>',
-        unsafe_allow_html=True
-    )
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.metric(
-            "Łatwość wyboru",
-            "4,50 / 5",
-            "+1,75 względem wyboru bez aplikacji"
-        )
-        st.caption("Bez GastroMatch: 2,75 / 5")
-
-    with col2:
-        st.metric(
-            "Pewność decyzji",
-            "3,58 / 5",
-            "+0,58 względem wyboru bez aplikacji"
-        )
-        st.caption("Bez GastroMatch: 3,00 / 5")
-
-    with col3:
-        st.metric(
-            "Zrozumienie rekomendacji",
-            "4,75 / 5",
-            "+1,75 względem wyboru bez aplikacji"
-        )
-        st.caption("Bez GastroMatch: 3,00 / 5")
 
     st.markdown("""
-    Największa poprawa była widoczna w dwóch obszarach: **łatwości wyboru**
-    oraz **zrozumieniu rekomendacji**. Pewność decyzji również wzrosła, ale słabiej,
-    co wskazuje konkretny kierunek dalszego rozwoju prototypu.
-    """)
 
-    st.markdown("---")
-
-    st.markdown(
-        '<div class="section-title">Czas wyboru</div>',
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("""
-        #### Bez GastroMatch
+    st.markdown("""
 
-        **67% respondentów** potrzebowało ponad 10 minut  
-        albo nie udało im się jednoznacznie wybrać oferty.
-        """)
+    Łatwiejszy wybór z GastroMatch
+    83%
+
+    10 z 12 respondentów wskazało, że wybór oferty
+    z użyciem GastroMatch był łatwiejszy niż samodzielne porównywanie opcji.
+
+    Wniosek: quiz realnie upraszcza pierwszy kontakt z ofertą.
+
+    """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown("""
-        #### Z GastroMatch
+    st.markdown("""
 
-        **83% respondentów** przeszło quiz i otrzymało rekomendację  
-        w czasie do 2 minut.
-        """)
+    Wybór w czasie do 2 minut
+    83%
+
+    10 z 12 respondentów przeszło quiz i otrzymało rekomendację
+    w czasie krótszym niż 2 minuty.
+
+    Wniosek: GastroMatch skraca ścieżkę decyzyjną.
+
+    """, unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+    st.markdown("""
+
+    Wysoka zrozumiałość rekomendacji
+    100%
+
+    12 z 12 respondentów oceniło zrozumiałość rekomendacji
+    na 4 lub 5 w skali od 1 do 5.
+
+    Wniosek: użytkownicy rozumieją, dlaczego dana opcja została wskazana.
+
+    """, unsafe_allow_html=True)
+
+    with col2:
+    st.markdown("""
+
+    Chęć użycia podobnego narzędzia
+    75%
+
+    9 z 12 respondentów zadeklarowało, że użyłoby
+    lub raczej użyłoby takiego quizu przy realnym wyborze diety pudełkowej.
+
+    Wniosek: koncepcja ma potencjał użytkowy, ale wymaga dalszego rozwoju.
+
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    Na podstawie wyników można stwierdzić, że GastroMatch najlepiej sprawdza się jako
+    asystent pierwszego wyboru. Pomaga użytkownikowi szybciej zawęzić ofertę,
+    uporządkować potrzeby i zrozumieć otrzymaną rekomendację.
+    """)
+
+    st.markdown("---")
+
+--- Porównanie przed i po użyciu GastroMatch ---
+
+    st.markdown(
+    'Porównanie przed i po użyciu GastroMatch',
+    unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    Respondenci oceniali proces wyboru w skali od 1 do 5. Porównanie pokazuje,
+    jak zmieniła się ocena po skorzystaniu z prototypu.
+    """)
+
+    st.markdown("""
+
+    st.markdown("""
+
+    st.markdown("""
 
     st.success(
-        "Wniosek: GastroMatch skraca ścieżkę decyzyjną i pomaga szybciej przejść "
-        "od ogólnego zainteresowania ofertą do konkretnej rekomendacji."
+    "Najważniejszy wniosek: GastroMatch wyraźnie poprawia łatwość wyboru i zrozumienie rekomendacji. "
+    "Pewność decyzji również rośnie, ale to właśnie ten obszar warto najmocniej rozbudować w kolejnej wersji."
     )
 
     st.markdown("---")
