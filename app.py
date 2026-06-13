@@ -1593,7 +1593,6 @@ def render_research_tab():
         "na dodaniu informacji, które zwiększą pewność użytkownika przed realnym zamówieniem."
     )
 
-    ```
     st.markdown("---")
 
     st.markdown(
